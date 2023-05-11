@@ -39,3 +39,36 @@ For one sentence summarization, our training and reconstructing process only spe
 ├── requirements.txt
 └── LICENSE
 ```
+
+## Installation
+```bash
+git clone --recursive https://github.com/ZhouHaonanShens/Robo3D-A_Demo.git
+cd torch-ngp
+```
+
+### Install with pip
+```bash
+pip install -r requirements.txt
+```
+
+### Install with conda
+```bash
+conda env create -f environment.yml
+conda activate Robo3D
+```
+
+## Usage
+Run with only 2D images dataset
+```bash
+python hz_nerf.py ${data_path} --workspace ${workspace_path}  --HZ --bound 1.0 --scale 0.25
+```
+
+Run with 2D images and depths (KL Divergence)
+```bash
+python hz_nerf.py ${data_path} --workspace ${workspace_path}  --HZ --bound 1.0 --scale 0.25 --depth_supervise
+```
+
+Run with 2D images and depths (L2 Loss)
+```bash
+python hz_nerf.py ${data_path} --workspace ${workspace_path}  --HZ --bound 1.0 --scale 0.25 --depth_supervise_E2
+```

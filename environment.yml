@@ -1,4 +1,4 @@
-name: torch-ngp
+name: Robo3D
 channels:
   - pytorch
   - conda-forge
