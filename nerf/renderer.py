@@ -1,3 +1,12 @@
+"""
+@Project : Robo3D
+@File    : nerf/renderer.py
+@IDE     : PyCharm
+@Author  : Haonan Zhou
+@Date    : 10/05/2023
+@Brief   : This script defines a NeRFRenderer class for rendering the rays.
+"""
+
 import math
 import trimesh
 import numpy as np

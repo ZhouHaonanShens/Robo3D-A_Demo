@@ -1,3 +1,12 @@
+"""
+@Project : Robo3D
+@File    : nerf/utils.py
+@IDE     : PyCharm
+@Authors : ashawkey, Haonan Zhou
+@Date    : 10/05/2023
+@Brief   : Implementations for some key functions and classes, including the Trainer and test Meters.
+"""
+
 import json
 import os
 import glob

@@ -1,3 +1,12 @@
+"""
+@Project : Robo3D
+@File    : nerf/network.py
+@IDE     : PyCharm
+@Author  : Haonan Zhou
+@Date    : 10/05/2023
+@Brief   : This script defines a NeRFNetwork class for 3D scene rendering using Neural Radiance Fields (NeRF).
+"""
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

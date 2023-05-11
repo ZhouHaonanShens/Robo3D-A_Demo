@@ -1,3 +1,13 @@
+"""
+@Project : Robo3D
+@File    : hz_nerf.py
+@IDE     : PyCharm
+@Authors : Haonan Zhou
+@Date    : 10/05/2023
+@Brief   : The main/entry script to run the nerf training or testing.
+@Parameters are all explained in its own 'help'
+"""
+
 import numpy as np
 import torch
 import argparse

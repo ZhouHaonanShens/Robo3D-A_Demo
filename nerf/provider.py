@@ -1,3 +1,11 @@
+"""
+@Project : Robo3D
+@File    : nerf/provider.py
+@IDE     : PyCharm
+@Authors : Haonan Zhou
+@Date    : 10/05/2023
+@Brief   : Dataset provider. Load the data from disk.
+"""
 import os
 import cv2
 import glob
