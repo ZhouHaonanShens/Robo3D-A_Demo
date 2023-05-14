@@ -1,6 +1,11 @@
 # Robo3D-Central Host Part
 This repository is some demo code from the Robo3D project, which only includes some code of the Central Host, while the robot's code is not included.
 
+<p float="left">
+  <img src="assets/rgb_result.gif" width="400" />
+  <img src="assets/depths_result.gif" width="400" /> 
+</p>
+
 Tested on Ubuntu-20.04---Nvidia RTX2080---cuda toolkit 11.3
 
 <details>
