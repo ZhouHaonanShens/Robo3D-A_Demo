@@ -88,10 +88,10 @@ python hz_nerf.py ${data_path} --workspace ${workspace_path}  --HZ --bound 1.0 -
 | @path      |  str/path   | The path to data | N/A |
 | @workspace      | str/path  |   The path to workspace for logs and results | 'workspace' |
 | @ckpt | str/path  |    The path to the checkpoint | 'latest' |
-| @cuda_ray | store true  |    Use CUDA raymarching instead of pytorch if true | False |
 | @bound |    float    |    Assume the scene is bounded in box[-bound, bound]^3, if > 1, will invoke adaptive ray marching | 2 |
 | @scale |    float    |    Scale camera location into box[-bound, bound]^3 | 0.33 |
 | @max_ray_batch |     int     |    Batch size of rays at inference to avoid OOM, only valid when NOT using '--cuda_ray' | 4096 |
+| @cuda_ray | store true  |    Use CUDA raymarching instead of pytorch if true | False |
 | @depth_supervise | store true  |    Introduce depth supervision via KL divergence | False |
 | @test_entropy | store true  |    Enable entropy test only mode | False |
 | @hz_train | store true  |    Enable the active selecting policy | False |
