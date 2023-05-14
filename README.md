@@ -1,6 +1,8 @@
 # Robo3D-Central Host Part
 This repository is some demo code from the Robo3D project, which only includes some code of the Central Host, while the robot's code is not included.
 
+Tested on Ubuntu-20.04---Nvidia RTX2080---cuda toolkit 11.3
+
 ## Project:
 
 This project explores the exciting field of 3D scene reconstruction from 2D images, with a focus on active mapping and planning using implicit representations. Leveraging the power of Neural Radiance Fields (NeRF), we've developed an online 3D reconstruction and planning system for active vision tasks.
@@ -58,6 +60,13 @@ conda activate Robo3D
 ```
 
 ## Usage
+Run COLMAP for images only data to get pose
+```bash
+python scripts/colmap2nerf.py --images path/to/images --hold 0  --run_colmap
+# or
+./scripts/run_COLMAP.sh # Please edit parameters in the script
+```
+
 Run with only 2D images dataset
 ```bash
 python hz_nerf.py ${data_path} --workspace ${workspace_path}  --HZ --bound 1.0 --scale 0.25
@@ -72,3 +81,18 @@ Run with 2D images and depths (L2 Loss)
 ```bash
 python hz_nerf.py ${data_path} --workspace ${workspace_path}  --HZ --bound 1.0 --scale 0.25 --depth_supervise_E2
 ```
+
+## Parameters for hz_train.py script
+| Parameter        |    Type     | Description  | Default Value |
+| ------------- |:-----------:| -----| -----:|
+| @path      |  str/path   | The path to data | N/A |
+| @workspace      | str/path  |   The path to workspace for logs and results | 'workspace' |
+| @ckpt | str/path  |    The path to the checkpoint | 'latest' |
+| @cuda_ray | store true  |    Use CUDA raymarching instead of pytorch if true | False |
+| @bound |    float    |    Assume the scene is bounded in box[-bound, bound]^3, if > 1, will invoke adaptive ray marching | 2 |
+| @scale |    float    |    Scale camera location into box[-bound, bound]^3 | 0.33 |
+| @max_ray_batch |     int     |    Batch size of rays at inference to avoid OOM, only valid when NOT using '--cuda_ray' | 4096 |
+| @depth_supervise | store true  |    Introduce depth supervision via KL divergence | False |
+| @test_entropy | store true  |    Enable entropy test only mode | False |
+| @hz_train | store true  |    Enable the active selecting policy | False |
+

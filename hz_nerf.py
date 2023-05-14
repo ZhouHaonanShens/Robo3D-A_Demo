@@ -8,6 +8,22 @@
 @Parameters are all explained in its own 'help'
 """
 
+"""
+# Parameters:
+@path           :   (str or path)The path to data---No Default Value
+@workspace      :   (str or path)The path to workspace for logs and results---default='workspace'
+@ckpt           :   (str or path)The path to the checkpoint---default='latest'
+@cuda_ray       :   (store true)Use CUDA raymarching instead of pytorch if ture---default=False
+@bound          :   (float)assume the scene is bounded in box[-bound, bound]^3,
+                    if > 1, will invoke adaptive ray marching.'---default=2
+@scale          :   (float)Scale camera location into box[-bound, bound]^3---default=0.33
+@max_ray_batch  :   (int)batch size of rays at inference to avoid OOM, 
+                    only valid when NOT using '--cuda_ray'---default=4096
+@depth_supervise:   (store true)Introduce depth supervision via KL divergence---default=False
+@test_entropy   :   (store true)Enable entropy test only mode---default=False
+@hz_train       :   (store true)Enable the active selecting policy---default=False
+"""
+
 import numpy as np
 import torch
 import argparse
@@ -50,10 +66,7 @@ if __name__ == '__main__':
     parser.add_argument('--patch_size', type=int, default=1,
                         help="[experimental] render patches in training, so as to apply LPIPS loss. 1 means disabled, use [64, 32, 16] to enable")
 
-    ### network backbone options
     parser.add_argument('--fp16', action='store_true', help="use amp mixed precision training")
-    parser.add_argument('--ff', action='store_true', help="use fully-fused MLP")
-    parser.add_argument('--tcnn', action='store_true', help="use TCNN backend")
 
     ### dataset options
     parser.add_argument('--color_space', type=str, default='srgb', help="Color space, supports (linear, srgb)")
@@ -89,7 +102,7 @@ if __name__ == '__main__':
     parser.add_argument('--downscale', type=int, default=8, help="downscale to avoid lack of GPU memory")
     parser.add_argument('--depth_supervise', action='store_true', help="Introduce depth supervision via KL divergence")
     parser.add_argument('--depth_supervise_E2', action='store_true', help="Introduce depth supervision via KL divergence")
-    parser.add_argument('--test_entropy', action='store_true')
+    # parser.add_argument('--test_entropy', action='store_true')
     parser.add_argument('--hz_train', action='store_true', help="Train with new policy.")
 
     opt = parser.parse_args()
