@@ -43,6 +43,7 @@ For one sentence summarization, our training and reconstructing process only spe
 ```
 
 ## Installation
+### Clone the repository
 ```bash
 git clone --recursive https://github.com/ZhouHaonanShens/Robo3D-A_Demo.git
 cd Robo3D-A_Demo
