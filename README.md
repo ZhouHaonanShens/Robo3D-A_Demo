@@ -3,6 +3,19 @@ This repository is some demo code from the Robo3D project, which only includes s
 
 Tested on Ubuntu-20.04---Nvidia RTX2080---cuda toolkit 11.3
 
+<details>
+  <summary> Dependencies (click to expand) </summary>
+  
+  ## Dependencies
+  - PyTorch 1.4
+  - matplotlib
+  - numpy
+  - imageio
+  - imageio-ffmpeg
+  - configargparse
+  
+</details>
+
 ## Project:
 
 This project explores the exciting field of 3D scene reconstruction from 2D images, with a focus on active mapping and planning using implicit representations. Leveraging the power of Neural Radiance Fields (NeRF), we've developed an online 3D reconstruction and planning system for active vision tasks.
